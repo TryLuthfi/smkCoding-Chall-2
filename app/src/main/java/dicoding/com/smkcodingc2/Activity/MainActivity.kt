@@ -1,7 +1,8 @@
-package dicoding.com.smkcodingc2
+package dicoding.com.smkcodingc2.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dicoding.com.smkcodingc2.R
 
 class MainActivity : AppCompatActivity() {
 
