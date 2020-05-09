@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".Activity.MainActivity">
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,9 +19,8 @@
         android:background="#f5f5f5" />
 
     <com.google.android.material.tabs.TabLayout
-        android:background="#2196F3"
-        android:id="@+id/tablayout"
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="60dp" />
 
 </LinearLayout>
