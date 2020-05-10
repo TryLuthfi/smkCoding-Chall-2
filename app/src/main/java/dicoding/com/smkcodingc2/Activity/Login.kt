@@ -18,13 +18,11 @@ class Login : AppCompatActivity() {
     }
 
     private fun validasiLogin() {
-        val intent = Intent(this, MainActivity :: class.java)
-        startActivity(intent)
+        startActivity(Intent(this, MainActivity :: class.java))
         finish()
     }
 
     private fun gotoRegister() {
-        val intent = Intent(this,Register :: class.java )
-        startActivity(intent)
+        startActivity(Intent (this, Register :: class.java))
     }
 }
