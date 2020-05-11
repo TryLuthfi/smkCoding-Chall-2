@@ -11,8 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.GetStarted">
+        <activity android:name=".Activity.Slider">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.GetStarted">
         </activity>
 
         <meta-data
@@ -20,13 +26,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name=".Activity.Register" />
-        <activity android:name=".Activity.Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Activity.Login"></activity>
         <activity android:name=".Activity.MainActivity" />
     </application>
 
