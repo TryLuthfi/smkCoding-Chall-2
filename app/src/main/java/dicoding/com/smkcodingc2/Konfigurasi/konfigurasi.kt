@@ -7,4 +7,5 @@ object konfigurasi {
 
     const val LOGIN_URL = "https://smkcodingty.000webhostapp.com/login.php"
     const val REGISTRASI_URL = "https://smkcodingty.000webhostapp.com/"
+    const val WISATA_URL = "https://smkcodingty.000webhostapp.com/preview_wisata.php"
 }

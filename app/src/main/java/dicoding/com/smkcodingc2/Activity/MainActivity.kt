@@ -3,7 +3,6 @@ package dicoding.com.smkcodingc2.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.res.ResourcesCompat
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dicoding.com.smkcodingc2.Adapter.ViewPagerAdapter
 import dicoding.com.smkcodingc2.R

@@ -11,7 +11,6 @@ import dicoding.com.smkcodingc2.Request.ApiService
 import dicoding.com.smkcodingc2.Request.RegisterRequest
 import dicoding.com.smkcodingc2.Request.RegisterResponse
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.activity_register.tv_login
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback

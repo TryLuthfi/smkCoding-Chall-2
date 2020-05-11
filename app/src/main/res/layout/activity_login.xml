@@ -42,6 +42,7 @@
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/log_facebook"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="5dp"
@@ -79,6 +80,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/log_twitter"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="5dp"
@@ -157,6 +159,7 @@
             app:cardCornerRadius="25dp">
 
             <EditText
+                android:singleLine="true"
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -176,6 +179,8 @@
             app:cardCornerRadius="25dp">
 
             <EditText
+                android:nextFocusUp="@id/et_email"
+                android:singleLine="true"
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.android.volley.AuthFailureError
 import com.android.volley.Response
@@ -16,7 +17,7 @@ import dicoding.com.smkcodingc2.R
 import dicoding.com.smkcodingc2.Request.encryptMd5
 import kotlinx.android.synthetic.main.activity_login.*
 import java.math.BigInteger
-import java.util.HashMap
+import java.util.*
 
 class Login : AppCompatActivity() {
 
@@ -27,17 +28,26 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        progressDialog = ProgressDialog(this)
+
+        invalid_login.visibility = View.GONE
+
         val id_user = idUser
-        if (id_user !== "null") {
+        if (id_user != "null") {
             gotoCourseActivity()
         }
 
-        progressDialog = ProgressDialog(this)
-
+        log_facebook.setOnClickListener { TOAST() }
+        log_twitter.setOnClickListener { TOAST() }
         tv_btnLogin.setOnClickListener { btnMD5() }
         tv_signup.setOnClickListener { gotoRegister() }
 
     }
+
+    private fun TOAST() {
+        Toast.makeText(applicationContext, "Fitur Belum Dibuat",Toast.LENGTH_SHORT).show()
+    }
+
 
     private fun gotoRegister() {
         startActivity(Intent (this, Register :: class.java))
@@ -56,7 +66,14 @@ class Login : AppCompatActivity() {
             md5Str = "0$md5Str"
         }
         hasilmd5 = md5Str
-        login()
+
+        if(et_email!!.text.toString().isEmpty()){
+            et_email.error = "Harap isi email anda"
+        } else if(et_password!!.text.toString().isEmpty()){
+            et_password.error = "Harap isi password"
+        }else {
+            login()
+        }
     }
 
     private fun login() {
@@ -74,12 +91,14 @@ class Login : AppCompatActivity() {
                     gotoCourseActivity()
                 } else {
                     hideDialog()
-                    Toast.makeText(applicationContext, "Invalid username or password", Toast.LENGTH_LONG).show()
+                    invalid_login.text = "Invalid login or password"
+                    invalid_login.visibility = View.VISIBLE
                 }
             },
             Response.ErrorListener {
                 hideDialog()
-                Toast.makeText(applicationContext, "The server unreachable", Toast.LENGTH_LONG).show()
+                invalid_login.text = "The server unreachable"
+                invalid_login.visibility = View.VISIBLE
             }) {
             @Throws(AuthFailureError::class)
             override fun getParams(): Map<String, String> {
@@ -92,7 +111,7 @@ class Login : AppCompatActivity() {
         Volley.newRequestQueue(this).add(stringRequest)
     }
 
-   private fun gotoCourseActivity() {
+    private fun gotoCourseActivity() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
         finish()
@@ -113,7 +132,6 @@ class Login : AppCompatActivity() {
         editor.putString("id_user", id_user)
         editor.apply()
     }
-
 
     private val idUser: String
         private get() {

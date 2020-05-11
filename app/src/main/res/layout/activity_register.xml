@@ -145,6 +145,8 @@
             app:cardCornerRadius="25dp">
 
             <EditText
+                android:singleLine="true"
+                android:nextFocusDown="@id/et_lastname"
                 android:id="@+id/et_firstname"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -163,6 +165,8 @@
             app:cardCornerRadius="25dp">
 
             <EditText
+                android:singleLine="true"
+                android:nextFocusDown="@id/et_email"
                 android:id="@+id/et_lastname"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -181,6 +185,8 @@
             app:cardCornerRadius="25dp">
 
             <EditText
+                android:singleLine="true"
+                android:nextFocusDown="@id/et_password"
                 android:inputType="textEmailAddress"
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
@@ -201,6 +207,8 @@
             app:cardCornerRadius="25dp">
 
             <EditText
+                android:singleLine="true"
+                android:nextFocusUp="@id/et_firstname"
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
