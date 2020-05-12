@@ -1,4 +1,4 @@
-package dicoding.com.smkcodingc2.Request
+package dicoding.com.smkcodingc2.ApiRequest
 
 import com.google.gson.GsonBuilder
 import dicoding.com.smkcodingc2.Konfigurasi.konfigurasi
@@ -20,7 +20,7 @@ fun httpClient(): OkHttpClient {
 inline fun <reified T> apiRequest(okHttpClient: OkHttpClient): T {
     val gson = GsonBuilder().create()
     val retrofit = Retrofit.Builder()
-        .baseUrl(konfigurasi.REGISTRASI_URL)
+        .baseUrl(konfigurasi.WISATA_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()

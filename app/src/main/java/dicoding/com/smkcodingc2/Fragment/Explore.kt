@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
 import dicoding.com.smkcodingc2.Adapter.ExploreAdapter
+import dicoding.com.smkcodingc2.ApiRequest.GunungService
+import dicoding.com.smkcodingc2.ApiRequest.apiRequest
+import dicoding.com.smkcodingc2.ApiRequest.httpClient
 import dicoding.com.smkcodingc2.KotlinGenerate.WisataItem
 import dicoding.com.smkcodingc2.R
 import dicoding.com.smkcodingc2.Request.*
@@ -49,7 +52,10 @@ class Explore : Fragment() {
     private fun callApiGetGithubUser() {
         showLoading(context!!, swipeRefreshLayout)
         val httpClient = httpClient()
-        val apiRequest = apiRequest<GithubService>(httpClient)
+        val apiRequest =
+            apiRequest<GunungService>(
+                httpClient
+            )
         val call = apiRequest.getUsers()
         call.enqueue(object : Callback<List<WisataItem>> {
             override fun onFailure(call: Call<List<WisataItem>>, t: Throwable) {

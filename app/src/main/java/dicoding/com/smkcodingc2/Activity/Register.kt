@@ -60,7 +60,7 @@ class Register : AppCompatActivity() {
                     loginResponse = response.body()!!
                     if (loginResponse.status.equals("true") || loginResponse.message.equals("Successfully registered!")){
                         hideDialog()
-                        startActivity(Intent(applicationContext, MainActivity::class.java))
+                        startActivity(Intent(applicationContext, Login::class.java))
                     }else{
                         hideDialog()
                         Toast.makeText(applicationContext, response.body()!!.message, Toast.LENGTH_LONG).show()
