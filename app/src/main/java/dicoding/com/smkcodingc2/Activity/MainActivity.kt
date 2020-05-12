@@ -1,10 +1,13 @@
 package dicoding.com.smkcodingc2.Activity
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.tabs.TabLayoutMediator
 import dicoding.com.smkcodingc2.Adapter.ViewPagerAdapter
+import dicoding.com.smkcodingc2.Fragment.*
 import dicoding.com.smkcodingc2.R
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -14,18 +17,43 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val menuTeks = arrayOf("Explore", "Trips", "Profile")
-        val manuIcon = arrayOf(R.drawable.ic_explore, R.drawable.ic_heart,
-            R.drawable.ic_users)
+        val fm = supportFragmentManager
+        val fragmentTransaction = fm.beginTransaction()
+        fragmentTransaction.add(R.id.frame_container, Explore())
+        fragmentTransaction.commit()
 
-        val adapter = ViewPagerAdapter(this)
-        view_pager.setAdapter(adapter);
-        TabLayoutMediator(tab_layout, view_pager,
-            TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-                tab.text = menuTeks[position]
-                tab.icon = ResourcesCompat.getDrawable(resources,
-                manuIcon[position], null)
-            }).attach()
+        explore.setOnClickListener { btnExplore() }
+        trips.setOnClickListener { btnTrips() }
+        profile.setOnClickListener { btnProfile() }
+    }
 
+    private fun btnExplore() {
+        trips.setTextColor(Color.parseColor("#6E7275"))
+        explore.setTextColor(Color.parseColor("#2196F3"))
+        profile.setTextColor(Color.parseColor("#6E7275"))
+        val fm = supportFragmentManager
+        val fragmentTransaction = fm.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_container, Explore())
+        fragmentTransaction.commit()
+    }
+
+    private fun btnTrips() {
+        trips.setTextColor(Color.parseColor("#2196F3"))
+        explore.setTextColor(Color.parseColor("#6E7275"))
+        profile.setTextColor(Color.parseColor("#6E7275"))
+        val fm = supportFragmentManager
+        val fragmentTransaction = fm.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_container, Trips())
+        fragmentTransaction.commit()
+    }
+
+    private fun btnProfile() {
+        trips.setTextColor(Color.parseColor("#6E7275"))
+        explore.setTextColor(Color.parseColor("#6E7275"))
+        profile.setTextColor(Color.parseColor("#2196F3"))
+        val fm = supportFragmentManager
+        val fragmentTransaction = fm.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_container, Profil())
+        fragmentTransaction.commit()
     }
 }

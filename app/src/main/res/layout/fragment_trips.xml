@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.Trips">
+
+    <TextView
+        android:layout_marginHorizontal="15dp"
+        android:id="@+id/header"
+        android:layout_marginTop="15dp"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:text="My Trips"
+        android:layout_height="wrap_content" />
+
+    <androidx.cardview.widget.CardView
+        android:visibility="gone"
+        android:layout_marginHorizontal="15dp"
+        android:id="@+id/btn_choose"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="25sp"
+        app:cardBackgroundColor="#F1EFEF"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="#2196F3"
+                android:id="@+id/upcoming"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textSize="17sp"
+                android:layout_width="0dp"
+                android:text="Upcoming"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/finished"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textSize="17sp"
+                android:layout_width="0dp"
+                android:text="Finished"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/favorites"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textSize="17sp"
+                android:layout_width="0dp"
+                android:text="Favorites"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:visibility="gone"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/btn_choose"
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="25sp"
+        android:id="@+id/tab_layoutCard"
+        app:cardBackgroundColor="#F1EFEF"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <com.google.android.material.tabs.TabLayout
+            app:tabSelectedTextColor="#00BCD4"
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/tab_layoutCard"
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+</RelativeLayout>

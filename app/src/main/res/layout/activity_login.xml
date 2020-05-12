@@ -159,6 +159,7 @@
             app:cardCornerRadius="25dp">
 
             <EditText
+                android:inputType="textEmailAddress"
                 android:singleLine="true"
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
@@ -179,6 +180,7 @@
             app:cardCornerRadius="25dp">
 
             <EditText
+                android:inputType="textPassword"
                 android:nextFocusUp="@id/et_email"
                 android:singleLine="true"
                 android:id="@+id/et_password"

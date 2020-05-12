@@ -1,5 +1,6 @@
 package dicoding.com.smkcodingc2.Activity
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -42,6 +43,11 @@ class Slider : AppCompatActivity() {
         setContentView(R.layout.activity_slider)
         introSlideViewPager.adapter = introSlideAdapter
 
+        val id_user = idUser
+        if (id_user != "null") {
+            gotoCourseActivity()
+        }
+
         setupIndicator()
         setCurrentIndicator(0)
         introSlideViewPager.registerOnPageChangeCallback(object :
@@ -51,16 +57,17 @@ class Slider : AppCompatActivity() {
                 setCurrentIndicator(position)
             }
         })
-        buttonNext.setOnClickListener {
-            if(introSlideViewPager.currentItem +1 < introSlideAdapter.itemCount){
-                introSlideViewPager.currentItem += 1
-            } else{
-                startActivity(Intent(applicationContext, GetStarted::class.java))
-            }
-        }
-        tv_skipintro.setOnClickListener {
-            startActivity(Intent(applicationContext, GetStarted::class.java))
-        }
+
+        btn_login.setOnClickListener { startActivity(Intent(Intent(applicationContext, Login::class.java))) }
+        btn_register.setOnClickListener { startActivity(Intent(Intent(applicationContext, Register::class.java))) }
+//        buttonNext.setOnClickListener {
+//            if(introSlideViewPager.currentItem +1 < introSlideAdapter.itemCount){
+//                introSlideViewPager.currentItem += 1
+//            } else{
+//                startActivity(Intent(applicationContext, GetStarted::class.java))
+//            }
+//        }
+//        tv_skipintro.setOnClickListener {startActivity(Intent(applicationContext, GetStarted::class.java))}
     }
 
     private fun setCurrentIndicator(index: Int) {
@@ -105,6 +112,19 @@ class Slider : AppCompatActivity() {
             indicatorContainer.addView(indicator[i])
         }
     }
+
+    private fun gotoCourseActivity() {
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+    }
+
+    private val idUser: String
+        private get() {
+            val preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+            return preferences.getString("id_user", "null")
+        }
 
 
 

@@ -4,33 +4,37 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp">
+    android:padding="20dp">
 
     <ImageView
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="350dp"
         android:id="@+id/imageSlideIcon"
         android:contentDescription="@string/app_name" />
 
     <TextView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tittle Text"
         android:id="@+id/textTitle"
         android:gravity="center"
         android:textColor="#000000"
+        android:fontFamily="sans-serif-light"
         android:textStyle="bold"
-        android:textSize="18sp" />
+        android:textSize="25sp" />
 
     <TextView
+        android:paddingBottom="10dp"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:id="@+id/textDescription"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginHorizontal="10dp"
         android:text="Description Text"
-        android:textColor="#000000"
+        android:textColor="#BB000000"
         android:textSize="15sp" />
 
 
