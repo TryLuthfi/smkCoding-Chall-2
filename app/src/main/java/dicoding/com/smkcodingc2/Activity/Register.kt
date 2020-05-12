@@ -55,7 +55,7 @@ class Register : AppCompatActivity() {
                     response: Response<RegisterResponse>
                 ) {
 
-                    Log.d("Response::::", response.body().toString())
+                    Log.d("Respojhnse::::", response.body().toString())
                     val loginResponse :  RegisterResponse
                     loginResponse = response.body()!!
                     if (loginResponse.status.equals("true") || loginResponse.message.equals("Successfully registered!")){
