@@ -5,15 +5,18 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-import dicoding.com.smkcodingc2.Adapter.ExploreAdapter
+import dicoding.com.smkcodingc2.Adapter.KategoriAdapter
 import dicoding.com.smkcodingc2.ApiRequest.GunungService
+import dicoding.com.smkcodingc2.ApiRequest.KategoriService
 import dicoding.com.smkcodingc2.ApiRequest.apiRequest
 import dicoding.com.smkcodingc2.ApiRequest.httpClient
+import dicoding.com.smkcodingc2.KotlinGenerate.KategoriItem
 import dicoding.com.smkcodingc2.KotlinGenerate.WisataItem
 import dicoding.com.smkcodingc2.R
 import dicoding.com.smkcodingc2.Request.*
@@ -26,7 +29,7 @@ import retrofit2.Response
 
 class Explore : Fragment() {
 
-    var popular: String = ""
+    var popular: String = "Gunung"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +39,6 @@ class Explore : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-// Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_explore, container, false)
     }
 
@@ -46,30 +48,39 @@ class Explore : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
         no_internet.visibility = View.GONE
-        callApiGetGithubUser()
+        callApiGetKategori()
+        setFragment()
     }
 
-    private fun callApiGetGithubUser() {
+    private fun setFragment() {
+        val fm = childFragmentManager
+        val fragmentTransaction = fm.beginTransaction()
+        fragmentTransaction.add(R.id.frameLayout, Gunung())
+        fragmentTransaction.commit()
+    }
+
+    private fun callApiGetKategori() {
         showLoading(context!!, swipeRefreshLayout)
         val httpClient = httpClient()
         val apiRequest =
-            apiRequest<GunungService>(
+            apiRequest<KategoriService>(
                 httpClient
             )
         val call = apiRequest.getUsers()
-        call.enqueue(object : Callback<List<WisataItem>> {
-            override fun onFailure(call: Call<List<WisataItem>>, t: Throwable) {
+        call.enqueue(object : Callback<List<KategoriItem>> {
+            override fun onFailure(call: Call<List<KategoriItem>>, t: Throwable) {
                 dismissLoading(swipeRefreshLayout)
+                no_internet.visibility = View.VISIBLE
             }
-            override fun onResponse(call: Call<List<WisataItem>>, response:
-            Response<List<WisataItem>>
+            override fun onResponse(call: Call<List<KategoriItem>>, response:
+            Response<List<KategoriItem>>
             ) {
                 dismissLoading(swipeRefreshLayout)
                 when {
                     response.isSuccessful ->
                         when {
                             response.body()?.size != 0 ->
-                                tampilGithubUser(response.body()!!)
+                                tampilKategori(response.body()!!)
                             else -> {
                                 tampilToast(context!!, "Berhasil")
                             }
@@ -83,17 +94,18 @@ class Explore : Fragment() {
         })
     }
 
-    private fun tampilGithubUser(githubUsers: List<WisataItem>) {
-        kategorirRecyclerView.layoutManager = LinearLayoutManager(context)
-        kategorirRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL ,false)
-        kategorirRecyclerView.setHasFixedSize(false)
-        kategorirRecyclerView.isNestedScrollingEnabled = false
-        kategorirRecyclerView.adapter = ExploreAdapter(context!!, githubUsers) {
+    private fun tampilKategori(githubUsers: List<KategoriItem>) {
+        kategoriRecyclerView.layoutManager = LinearLayoutManager(context)
+        kategoriRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL ,false)
+        kategoriRecyclerView.setHasFixedSize(true)
+        kategoriRecyclerView.isNestedScrollingEnabled = false
+        kategoriRecyclerView.adapter = KategoriAdapter(-1, context!!, githubUsers) {
             val githubUser = it
             popular = githubUser.nama
             tampilToast(context!!, popular)
+            replaceFragment()
         }
-        kategorirRecyclerView.addOnItemTouchListener(object : OnItemTouchListener {
+        kategoriRecyclerView.addOnItemTouchListener(object : OnItemTouchListener {
             override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
                 val action = e.action
                 when (action) {
@@ -107,6 +119,28 @@ class Explore : Fragment() {
             override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
         })
     }
+
+    private fun replaceFragment() {
+        if(popular.contains("Gunung")){
+            val fm = childFragmentManager
+            val fragmentTransaction = fm.beginTransaction()
+            fragmentTransaction.replace(R.id.frameLayout, Gunung())
+            fragmentTransaction.commit()
+        } else if(popular.contains("Air Terjun")){
+            val fm = childFragmentManager
+            val fragmentTransaction = fm.beginTransaction()
+            fragmentTransaction.replace(R.id.frameLayout, AirTerjun())
+            fragmentTransaction.commit()
+        } else if(popular.contains("Danau")){
+            val fm = childFragmentManager
+            val fragmentTransaction = fm.beginTransaction()
+            fragmentTransaction.replace(R.id.frameLayout, Danau())
+            fragmentTransaction.commit()
+        } else {
+            Toast.makeText(context, "Kategori not found", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()
