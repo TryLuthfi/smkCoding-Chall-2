@@ -86,8 +86,11 @@ class Login : AppCompatActivity() {
                 if (response.contains(konfigurasi.LOGIN_SUCCESS)) {
                     hideDialog()
                     val id_user = response.split(";").toTypedArray()[1]
-                    Log.e("iniidpelanggan", id_user)
-                    setPreference(id_user)
+                    val email = response.split(";").toTypedArray()[2]
+                    val password = response.split(";").toTypedArray()[3]
+                    val first_name = response.split(";").toTypedArray()[4]
+                    val last_name = response.split(";").toTypedArray()[5]
+                    setPreference(id_user, email, password, first_name, last_name)
                     gotoCourseActivity()
                 } else {
                     hideDialog()
@@ -126,10 +129,14 @@ class Login : AppCompatActivity() {
         if (progressDialog!!.isShowing) progressDialog!!.dismiss()
     }
 
-    fun setPreference(id_user: String?) {
+    fun setPreference(id_user: String?, email: String?, password: String?, first_name: String, last_name: String?) {
         val mSettings = getSharedPreferences("Settings", Context.MODE_PRIVATE)
         val editor = mSettings.edit()
         editor.putString("id_user", id_user)
+        editor.putString("email", email)
+        editor.putString("password", password)
+        editor.putString("first_name", first_name)
+        editor.putString("last_name", last_name)
         editor.apply()
     }
 
