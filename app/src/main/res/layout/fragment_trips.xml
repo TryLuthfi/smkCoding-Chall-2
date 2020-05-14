@@ -37,8 +37,6 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="20dp"
         android:layout_below="@id/tab_layoutCard"
         android:id="@+id/view_pager"
         android:layout_width="match_parent"

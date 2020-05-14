@@ -12,9 +12,9 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity?) :
 
     override fun createFragment(position: Int): Fragment {
         when (position) {
-            0 -> { return Favorites() }
-            1 -> { return Upcoming() }
-            2 -> { return Finished() }
+            0 -> { return Upcoming() }
+            1 -> { return Finished() }
+            2 -> { return Favorites() }
             else -> {
                 return Trips()
             }

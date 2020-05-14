@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.Nullable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import dicoding.com.smkcodingc2.Konfigurasi.konfigurasi
 
 import dicoding.com.smkcodingc2.R
 import kotlinx.android.synthetic.main.fragment_profil.*
@@ -42,9 +43,14 @@ class Profil : Fragment() {
         val passwordV = password
         val firstNameV = first_name
         val lastNameV = last_name
-        if(idUserV != "empty" && emailV != "empty" && passwordV != "empty" && firstNameV != "empty" && lastNameV != "empty"){
+        val imageProfileV = image_profile
+        if(idUserV != "empty" && emailV != "empty" && passwordV != "empty" && firstNameV != "empty" && lastNameV != "empty" && imageProfileV != "empty"){
             tv_username.setText(firstNameV+lastNameV)
             tv_email.setText(emailV)
+
+            Glide.with(context!!.applicationContext)
+                .load(konfigurasi.KATEGORI_URL+imageProfileV).apply(requestOptions)
+                .into(imageProfile)
         }
 
         Glide.with(context!!)
@@ -82,5 +88,11 @@ class Profil : Fragment() {
         private get() {
             val preferences = context!!.getSharedPreferences("Settings", Context.MODE_PRIVATE)
             return preferences.getString("last_name", "null")
+        }
+
+    private val image_profile: String
+        private get() {
+            val preferences = context!!.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+            return preferences.getString("image_profile", "null")
         }
 }

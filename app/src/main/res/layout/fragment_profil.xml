@@ -1,199 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginHorizontal="30dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".Fragment.Profil">
 
-    <TextView
-        android:id="@+id/header"
-        android:layout_marginTop="15dp"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif"
-        android:textSize="40sp"
-        android:layout_width="wrap_content"
-        android:text="Profile"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="125dp"
-        android:layout_marginVertical="10dp"
-        android:layout_gravity="center"
-        android:layout_height="125dp" >
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif"
+            android:text="Profile"
+            android:textColor="#000000"
+            android:textSize="40sp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageProfile"
+        <RelativeLayout
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="10dp"
+            android:layout_marginTop="20dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/white_circle"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/plus_image" />
+        </RelativeLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:visibility="gone"
-            android:id="@+id/white_circle"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_width="42dp"
-            android:layout_height="42dp" />
-
-        <ImageView
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_width="40dp"
-            android:background="@drawable/plus_image"
-            android:layout_height="40dp" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:textSize="18sp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:text="Username"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/tv_username"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textColor="#000000"
-            android:text="Try Luthfi"
-            android:textSize="18sp" />
-    </LinearLayout>
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:background="#eeeeee"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Username"
+                android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="Try Luthfi"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
 
-        <TextView
-            android:textSize="18sp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:text="Email"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:background="#eeeeee" />
 
-        <TextView
-            android:id="@+id/tv_email"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textColor="#000000"
-            android:text="ty01091990@gmail.com"
-            android:textSize="18sp" />
-    </LinearLayout>
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:background="#eeeeee"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Email"
+                android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="ty01091990@gmail.com"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
 
-        <TextView
-            android:textSize="18sp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:text="Phone"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:background="#eeeeee" />
 
-        <TextView
-            android:id="@+id/tv_phone"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textColor="#000000"
-            android:text="-"
-            android:textSize="18sp" />
-    </LinearLayout>
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:background="#eeeeee"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Phone"
+                android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="-"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
 
-        <TextView
-            android:textSize="18sp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:text="Date of birth"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:background="#eeeeee" />
 
-        <TextView
-            android:id="@+id/tv_ultah"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textColor="#000000"
-            android:text="-"
-            android:textSize="18sp" />
-    </LinearLayout>
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:background="#eeeeee"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Date of birth"
+                android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_ultah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="-"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
 
-        <TextView
-            android:textSize="18sp"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:text="Address"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:background="#eeeeee" />
 
-        <TextView
-            android:id="@+id/tv_address"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:textColor="#000000"
-            android:text="-"
-            android:textSize="18sp" />
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Address"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:text="-"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:background="#eeeeee" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_change"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="30dp"
+            app:cardBackgroundColor="#50D3C2"
+            app:cardCornerRadius="25dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:text="Edit Profile"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginBottom="20dp"
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="#BD1515"
+            app:cardCornerRadius="25dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:text="Log out"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:background="#eeeeee"
-        android:layout_width="match_parent"
-        android:layout_height="1dp" />
-
-
-</LinearLayout>
+</ScrollView>
