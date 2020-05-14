@@ -47,6 +47,10 @@ class Profil : Fragment() {
             tv_email.setText(emailV)
         }
 
+        Glide.with(context!!)
+            .load("https://htmlcolors.com/color-image/ffffff.png").apply(requestOptions)
+            .into(white_circle)
+
 
     }
 
