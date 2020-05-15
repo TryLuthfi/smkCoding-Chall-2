@@ -1,19 +1,20 @@
 package dicoding.com.smkcodingc2.Fragment
 
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import dicoding.com.smkcodingc2.Activity.Login
 import dicoding.com.smkcodingc2.Konfigurasi.konfigurasi
-
 import dicoding.com.smkcodingc2.R
 import kotlinx.android.synthetic.main.fragment_profil.*
-import kotlinx.android.synthetic.main.list_kategori.*
 
 class Profil : Fragment() {
 
@@ -56,6 +57,14 @@ class Profil : Fragment() {
         Glide.with(context!!)
             .load("https://htmlcolors.com/color-image/ffffff.png").apply(requestOptions)
             .into(white_circle)
+
+        btn_logout.setOnClickListener {
+            val preferences: SharedPreferences = activity!!.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+            preferences.edit().clear().commit()
+            val intent = Intent(activity!!.getApplicationContext(), Login::class.java)
+            startActivity(intent)
+            activity!!.finish()
+        }
 
 
     }
