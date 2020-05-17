@@ -39,10 +39,10 @@ class ExploreAdapter(
     class ViewHolder(val context: Context, override val containerView: View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bindItem(item: WisataItem, listener: (WisataItem) -> Unit) {
-            tv_nama.text = item.nama
-            tv_deskripsi.setText("  "+item.deskripsi)
-            Glide.with(context).load(konfigurasi.WISATA_URL +item.gambar).into(iv_gambar)
-            containerView.setOnClickListener { listener(item) }
+                tv_nama.text = item.nama
+                tv_deskripsi.setText("  " + item.deskripsi)
+                Glide.with(context).load(konfigurasi.WISATA_URL + item.gambar).into(iv_gambar)
+                containerView.setOnClickListener { listener(item) }
         }
     }
 }
