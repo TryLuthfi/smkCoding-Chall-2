@@ -17,14 +17,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        firstFragmentShow()
+        explore.setOnClickListener { btnExplore() }
+        trips.setOnClickListener { btnTrips() }
+        profile.setOnClickListener { btnProfile() }
+    }
+
+
+    private fun firstFragmentShow() {
         val fm = supportFragmentManager
         val fragmentTransaction = fm.beginTransaction()
         fragmentTransaction.add(R.id.frame_container, Explore())
         fragmentTransaction.commit()
-
-        explore.setOnClickListener { btnExplore() }
-        trips.setOnClickListener { btnTrips() }
-        profile.setOnClickListener { btnProfile() }
     }
 
     private fun btnExplore() {
@@ -55,5 +59,10 @@ class MainActivity : AppCompatActivity() {
         val fragmentTransaction = fm.beginTransaction()
         fragmentTransaction.replace(R.id.frame_container, Profil())
         fragmentTransaction.commit()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }

@@ -20,18 +20,18 @@ class Slider : AppCompatActivity() {
     private val introSlideAdapter = IntroSlideAdapter(
         listOf(
             IntroSlide(
-                "Plan your trips",
-                "Book one of our unique hotel to escape the ordinary",
+                "Rencanakan Tujuanmu",
+                "Pilih salah satu tempat wisata yang menurutmu menarik untuk dikunjungi",
                 R.drawable.ic_adventure
             ),
             IntroSlide(
-                "Find Best Deals",
-                "Fund dealsfor any season from cosy country homes to sity flats",
+                "Tentukan Penginapannya",
+                "Penawaran dana untuk musim apa pun, dari rumah pedesaan yang nyaman hingga flat kota ",
                 R.drawable.ic_offroad
             ),
             IntroSlide(
                 "Nikmati Liburanmu",
-                "Book one of our unique hotel to escape the ordinary",
+                "Bersenang-senanglah dengan tujuan liburanmu",
                 R.drawable.ic_holiday
             )
 

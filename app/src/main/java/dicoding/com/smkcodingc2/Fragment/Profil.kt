@@ -23,7 +23,7 @@ class Profil : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_profil, container, false)
     }
 
@@ -73,7 +73,11 @@ class Profil : Fragment() {
     }
 
     private fun changeProfile() {
-        startActivity(Intent(context!!.applicationContext, EditProfile::class.java))
+        val intent = Intent(context!!.applicationContext, EditProfile::class.java)
+        intent.putExtra("email", email)
+        intent.putExtra("first_name", first_name)
+        intent.putExtra("last_name", last_name)
+        startActivity(intent)
     }
 
     private val idUser: String

@@ -33,7 +33,7 @@ class Trips : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        val menuTeks = arrayOf("Upcoming", "Finished", "Favorites")
+        val menuTeks = arrayOf("News", "Finished", "Favorites")
         val adapter = ViewPagerAdapter(activity)
         view_pager.setAdapter(adapter);
         TabLayoutMediator(tab_layout, view_pager,
