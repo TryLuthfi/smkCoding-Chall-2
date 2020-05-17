@@ -11,6 +11,7 @@ import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import dicoding.com.smkcodingc2.Activity.EditProfile
 import dicoding.com.smkcodingc2.Activity.Login
 import dicoding.com.smkcodingc2.Konfigurasi.konfigurasi
 import dicoding.com.smkcodingc2.R
@@ -32,6 +33,8 @@ class Profil : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
+        btn_change.setOnClickListener { changeProfile() }
+
         val requestOptions = RequestOptions()
             .placeholder(R.color.colorBlack)
 
@@ -45,7 +48,7 @@ class Profil : Fragment() {
         val firstNameV = first_name
         val lastNameV = last_name
         val imageProfileV = image_profile
-        if(idUserV != "empty" && emailV != "empty" && passwordV != "empty" && firstNameV != "empty" && lastNameV != "empty" && imageProfileV != "empty"){
+        if(idUserV != "empty" && emailV != "empty" && passwordV != "empty" && firstNameV != "empty" && lastNameV != "empty"){
             tv_username.setText(firstNameV+lastNameV)
             tv_email.setText(emailV)
 
@@ -67,6 +70,10 @@ class Profil : Fragment() {
         }
 
 
+    }
+
+    private fun changeProfile() {
+        startActivity(Intent(context!!.applicationContext, EditProfile::class.java))
     }
 
     private val idUser: String

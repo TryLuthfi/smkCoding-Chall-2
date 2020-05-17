@@ -16,4 +16,6 @@ data class WisataItem(
     val lokasi: String,
     @SerializedName("nama")
     val nama: String
+
+
 )

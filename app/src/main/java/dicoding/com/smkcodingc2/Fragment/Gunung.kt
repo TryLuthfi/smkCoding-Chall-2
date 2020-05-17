@@ -18,7 +18,9 @@ import dicoding.com.smkcodingc2.R
 import dicoding.com.smkcodingc2.Request.dismissLoading
 import dicoding.com.smkcodingc2.Request.showLoading
 import dicoding.com.smkcodingc2.Request.tampilToast
+import kotlinx.android.synthetic.main.fragment_explore.*
 import kotlinx.android.synthetic.main.fragment_gunung.*
+import kotlinx.android.synthetic.main.fragment_gunung.swipeRefreshLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,8 +43,14 @@ class Gunung : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
         callApiGetWisata()
     }
+
+
 
     private fun callApiGetWisata() {
         showLoading(context!!, swipeRefreshLayout)

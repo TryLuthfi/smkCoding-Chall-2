@@ -94,6 +94,8 @@ class Explore : Fragment() {
         })
     }
 
+
+
     private fun tampilKategori(githubUsers: List<KategoriItem>) {
         kategoriRecyclerView.layoutManager = LinearLayoutManager(context)
         kategoriRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL ,false)
